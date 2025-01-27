@@ -93,18 +93,23 @@
   max-width: 170px;
 }
 
+.monitor-container .right-data .sign:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 .monitor-container .sign > div {
   flex: 0 0 50%;
   max-width: 50%;
+  min-height: 77px;
   font-weight: 600;
 }
 
 .monitor-container .sign .sign-name {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .monitor-container .sign .sign-value {
-  font-size: 28px;
+  font-size: 27px;
   font-weight: 700;
 }
 
@@ -130,6 +135,10 @@
 
 .monitor-container .icon img {
   animation: fadeInOut 0.7s ease-in-out infinite;
+}
+
+.monitor-container .sign.blue {
+  color: var(--blue);
 }
 
 @keyframes wavespin {
