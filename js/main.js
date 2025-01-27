@@ -88,16 +88,22 @@ function updateWaveforms(heartRate, respiratoryRate) {
   const capnoScale = 12 / respiratoryRate; // Adjust scaling logic as needed
 
   // Update ECG path
-  const ecgPath = document.getElementById('ecg-path');
-  ecgPath.setAttribute('d', `M0,50 L${20 * ecgScale},50 L${30 * ecgScale},20 L${40 * ecgScale},80 L${50 * ecgScale},50 L${70 * ecgScale},50`);
+  const ecgPath = document.querySelectorAll('.ecg-path');
+  ecgPath.forEach(item => {
+    item.setAttribute('d', `M0,50 L${20 * ecgScale},50 L${30 * ecgScale},20 L${40 * ecgScale},80 L${50 * ecgScale},50 L${70 * ecgScale},50`);
+  })
 
   // Update Pulse Oximeter path
-  const pulseOxPath = document.getElementById('pulse-ox-path');
-  pulseOxPath.setAttribute('d', `M0,50 L${20 * pulseOxScale},50 L${30 * pulseOxScale},30 L${40 * pulseOxScale},50 L${60 * pulseOxScale},50`);
+  const pulseOxPath = document.querySelectorAll('.pulse-ox-path');
+  pulseOxPath.forEach(item => {
+    item.setAttribute('d', `M0,50 L${20 * pulseOxScale},50 L${30 * pulseOxScale},30 L${40 * pulseOxScale},50 L${60 * pulseOxScale},50`);
+  })
 
   // Update Capnometric path
-  const capnoPath = document.getElementById('capno-path');
-  capnoPath.setAttribute('d', `M0,50 L${20 * capnoScale},50 L${20 * capnoScale},30 L${40 * capnoScale},30 L${40 * capnoScale},50 L${60 * capnoScale},50`);
+  const capnoPath = document.querySelectorAll('.capno-path');
+  capnoPath.forEach(item => {
+    item.setAttribute('d', `M0,50 L${20 * capnoScale},50 L${20 * capnoScale},30 L${40 * capnoScale},30 L${40 * capnoScale},50 L${60 * capnoScale},50`);
+  })
 }
 
 // Set Range Input Value
@@ -127,7 +133,11 @@ function init() {
 
 
 
+
 /*
+
+SVG path animation
+
 let offset = 0;
 function animateWaveforms() {
   const ecgPath = document.getElementById('ecg-path');
