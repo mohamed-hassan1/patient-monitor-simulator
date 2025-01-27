@@ -329,3 +329,149 @@
   }
 }
 
+/*** Responsive ***/
+
+@media only screen and (max-width: 1199px) {
+  .monitor-container .left-data {
+    padding-right: 0px;
+    flex: 0 0 110px;
+    max-width: 110px;
+  }
+  .monitor-container .right-data {
+    flex: 0 0 195px;
+    max-width: 195px;
+  }
+  .monitor-container .wave-list::before {
+    animation: wavespin 4s cubic-bezier(0.04, 0.1, 0.08, 0.04) infinite;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .monitor-container .display-container .icon img {
+    width: 35px;
+  }
+  .monitor-container .left-data {
+    padding-left: 0px;
+  }
+  .monitor-container .left-data {
+    flex: 0 0 60px;
+    max-width: 60px;
+  }
+  .monitor-container .sign .sign-value {
+    font-size: 21px;
+  }
+  .monitor-container .sign .sign-name {
+    font-size: 16px;
+  }
+  .monitor-container .right-data {
+    flex: 0 0 170px;
+    max-width: 170px;
+  }
+  .monitor-container .mid-data {
+    flex: 0 0 calc(100% - 230px);
+    max-width: calc(100% - 230px);
+  }
+  .monitor-container .display-container {
+    padding-right: 0px;
+  }
+  .monitor-container .wave-list::before {
+    width: 9px;
+    animation: wavespin 2.4s cubic-bezier(0.04, 0.1, 0.08, 0.04) infinite;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .monitor-container .display-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .monitor-container .form-inner {
+    flex-wrap: wrap;
+  }
+  .monitor-container .form-inner .form-group:not(:last-child) {
+    margin: 0 0 25px 0;
+  }
+  .monitor-container .config-inputs {
+    padding: 0 15px 25px 15px;
+  }
+  .monitor-container .display-container .icon img {
+    width: 30px;
+  }
+  .monitor-container .data-row {
+    padding: 10px;
+  }
+  .monitor-container .left-data {
+    flex: 0 0 50px;
+    max-width: 50px;
+  }
+  .monitor-container .sign .sign-value {
+    font-size: 19px;
+  }
+  .monitor-container .sign .sign-name {
+    font-size: 15px;
+  }
+  .monitor-container .right-data {
+    flex: 0 0 150px;
+    max-width: 150px;
+  }
+  .monitor-container .mid-data {
+    flex: 0 0 calc(100% - 200px);
+    max-width: calc(100% - 200px);
+  }
+  .monitor-container .form-inner .form-group {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .monitor-container .box-container {
+    border-width: 6px;
+    border-radius: 12px;
+  }
+  .monitor-container .form-contaner label {
+    white-space: wrap;
+  }
+  .monitor-container .display-container {
+    padding: 0 10px;
+  }
+  .monitor-container .config-inputs {
+    padding: 0 10px 25px 10px;
+  }
+  .monitor-container .display-container .icon img {
+    width: 25px;
+  }
+  .monitor-container .data-row {
+    padding: 8px;
+  }
+  .monitor-container .left-data {
+    flex: 0 0 35px;
+    max-width: 35px;
+  }
+  .monitor-container .sign .sign-value {
+    font-size: 17px;
+  }
+  .monitor-container .sign .sign-name {
+    font-size: 14px;
+  }
+  .monitor-container .right-data {
+    flex: 0 0 135px;
+    max-width: 135px;
+  }
+  .monitor-container .mid-data {
+    flex: 0 0 calc(100% - 170px);
+    max-width: calc(100% - 170px);
+  }
+  .monitor-container .group-inner {
+    justify-content: space-between;
+  }
+  .monitor-container .wave-list::before {
+    animation: wavespin 2s cubic-bezier(0.04, 0.1, 0.08, 0.04) infinite;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .monitor-container .wave-list::before {
+    animation: wavespin 1.9s cubic-bezier(0.04, 0.1, 0.08, 0.04) infinite;
+  }
+}

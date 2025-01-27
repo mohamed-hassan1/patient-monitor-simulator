@@ -18,7 +18,14 @@ IN_number.forEach(item => {
 IN_range.forEach(item => {
   item.addEventListener('input', setRangeVal);
 });
-
+// Resize
+window.addEventListener('resize', function() {
+  if (window.innerWidth <= 767 && !configBtn.classList.contains('resize') || window.innerWidth > 767 && !configBtn.classList.contains('resize')) {
+    // Open Config
+    openConfig();
+    configBtn.classList.add('resize');
+  }
+})
 // After page load
 window.addEventListener('load', init);
 
@@ -28,7 +35,10 @@ window.addEventListener('load', init);
 function openConfig() {
   let listContainer = configBtn.nextElementSibling,
       list = listContainer.children[0].offsetHeight,
-      counter = 0;
+      counter = 0, speed = 10;
+  if (window.innerWidth <= 767) {
+    speed = 4;
+  }
   if (!configBtn.classList.contains('active')) { // Open List
     configBtn.classList.add('active');
     let frame = setInterval(function() {
@@ -39,7 +49,7 @@ function openConfig() {
         listContainer.style.height = list + 'px';
         clearInterval(frame);
       }
-    }, 10);
+    }, speed);
   } else { // Close List
     configBtn.classList.remove('active');
     counter = list - 5;
@@ -51,8 +61,9 @@ function openConfig() {
         listContainer.style.height = '0px';
         clearInterval(frame);
       }
-    }, 10);
+    }, speed);
   }
+  configBtn.classList.remove('resize');
 }
 
 // Set Range Input Color
