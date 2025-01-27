@@ -36,6 +36,42 @@
           <div class="col-12">
             <div class="box-container w-100 mx-auto">
               <div class="box-content d-flex flex-wrap w-100">
+                <!-- Start Config Inputs -->
+                <div class="config-inputs w-100">
+                  <div class="config-inner">
+                    <div class="config-heading d-inline-flex align-items-center mb-3 user-select-none">
+                      <div class="icon">
+                        <img src="img/gear.png" alt="settings" class="img-fluid me-2" width="24">
+                      </div>
+                      <div class="title fw-semibold me-2">Settings</div>
+                      <div class="icon arrow d-flex justify-content-center align-items-center">
+                        <img src="img/arrow.png" alt="arrow" class="img-fluid" width="10">
+                      </div>
+                    </div>
+                    <div class="form-contaner position-relative overflow-hidden">
+                      <div class="form-inner d-flex justify-content-center align-items-center w-100">
+                        <div class="form-group">
+                          <div class="d-flex align-items-center mb-3">
+                            <label for="heart-rate" class="fw-medium me-2 align-self-center">Heart Rate (bpm):</label>
+                            <input type="number" id="heart-rate" class="form-control heart-input" min="30" max="150" value="80">
+                          </div>
+                          <input type="range" class="form-range heart-range" min="30" max="150" value="80">
+                          <div class="note pt-2">Enter value between <span class="fw-semibold">(30-150)</span></div>
+                        </div>
+                        <div class="form-group">
+                          <div class="d-flex align-items-center mb-3">
+                            <label for="respiratory-rate" class="fw-medium me-2 align-self-center">Respiratory Rate (breaths/min):</label>
+                            <input type="number" id="respiratory-rate" class="form-control respiratory-input" min="10" max="30" value="16">
+                          </div>
+                          <input type="range" class="form-range respiratory-range" min="10" max="30" value="16">
+                          <div class="note pt-2">Enter value between <span class="fw-semibold">(10-30)</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Config Inputs -->
+                <!-- Start Display Container -->
                 <div class="display-container position-relative w-100">
                   <div class="inner-display h-100">
 
@@ -48,7 +84,9 @@
                       </div>
                       <div class="mid-data align-self-center">
                         <div class="wave-list position-relative">
-                          <div class="bgwave" style="background-image: url('img/wave1.png');"></div>
+                          <svg id="ecg" width="100%" height="77">
+                            <path id="ecg-path" stroke="#1F2734" stroke-width="2" fill="none" transform="translate(0, -10)">
+                          </svg>
                         </div>
                       </div>
                       <div class="right-data w-100 h-10">
@@ -64,7 +102,9 @@
                       <div class="left-data icon-data w-100"></div>
                       <div class="mid-data align-self-center">
                         <div class="wave-list position-relative">
-                          <div class="bgwave" style="background-image: url('img/wave2.png');"></div>
+                          <svg id="ecg" width="100%" height="77">
+                            <path id="ecg-path" stroke="#1F2734" stroke-width="2" fill="none" transform="translate(0, -10)">
+                          </svg>
                         </div>
                       </div>
                       <div class="right-data w-100 h-100">
@@ -79,9 +119,65 @@
                       </div>
                     </div>
                     <!--- End Row Data -->
+                    <!--- Start Row Data -->
+                    <div class="data-row d-flex">
+                      <div class="left-data icon-data w-100"></div>
+                      <div class="mid-data align-self-center">
+                        <div class="wave-list position-relative"></div>
+                      </div>
+                      <div class="right-data w-100 h-100">
+                        <div class="sign d-flex h-100 red">
+                          <div class="sign-name w-100 text-center">NIBP</div>
+                          <div class="sign-value w-100 d-flex justify-content-center align-items-end">120/80</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--- End Row Data -->
+                    <!--- Start Row Data -->
+                    <div class="data-row d-flex">
+                      <div class="left-data icon-data w-100">
+                        <div class="icon">
+                          <img src="img/heart2.png" alt="heart" class="img-fluid" width="45">
+                        </div>
+                      </div>
+                      <div class="mid-data align-self-center">
+                        <div class="wave-list position-relative">
+                          <svg id="pulse-ox" width="100%" height="77">
+                            <path id="pulse-ox-path" stroke="#0D99FF" stroke-width="2" fill="none" transform="translate(0, -10)">
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="right-data w-100 h-10">
+                        <div class="sign d-flex h-100 brown">
+                          <div class="sign-name w-100 text-center">AF</div>
+                          <div class="sign-value w-100 d-flex justify-content-center align-items-end">16</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--- End Row Data -->
+                    <!--- Start Row Data -->
+                    <div class="data-row d-flex">
+                      <div class="left-data icon-data w-100"></div>
+                      <div class="mid-data align-self-center">
+                        <div class="wave-list position-relative">
+                          <svg id="capno" width="100%" height="77">
+                            <path id="capno-path" stroke="#5271FF" stroke-width="2" fill="#bfcbff" transform="translate(0, 15)">
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="right-data w-100 h-100">
+                        <div class="sign d-flex h-100">
+                          <div class="sign-name w-100 text-center move">etCO2</div>
+                          <div class="sign-value w-100 d-flex justify-content-center align-items-end darkmove">34</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--- End Row Data -->
 
                   </div>
                 </div>
+                <!-- End Display Container -->
+                <!-- Start Buttons -->
                 <div class="box-btns w-100 d-flex flex-wrap flex-column justify-content-between">
                   <div class="btns-top">
                     <button class="btn bg-red w-100">AED</button>
@@ -94,6 +190,7 @@
                     <button class="btn bg-dark w-100">NIBP</button>
                   </div>
                 </div>
+                <!-- End Buttons -->
               </div>
             </div>
           </div>

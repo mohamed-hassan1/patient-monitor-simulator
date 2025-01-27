@@ -10,6 +10,12 @@
   --move: #5271FF;
   --darkMove: #541EB4;
   --dispayBg: #fff;
+  --brown: #6E352B;
+}
+
+.title {
+  font-size: 20px;
+  color: var(--borderColor);
 }
 
 /*** Monitor Container ***/
@@ -22,7 +28,7 @@
 
 .monitor-container .box-content {
   background-color: var(--bodyColor);
-  padding: 90px 0 70px 0;
+  padding: 20px 0 70px 0;
   border-radius: 8px;
 }
 
@@ -65,7 +71,7 @@
 }
 
 .monitor-container .box-btns .bg-red {
-  background-color: var(--red);
+  background-color: var(--darkRed);
 }
 
 .monitor-container .box-btns .bg-dark {
@@ -98,19 +104,22 @@
 }
 
 .monitor-container .sign > div {
-  flex: 0 0 50%;
-  max-width: 50%;
-  min-height: 77px;
+  min-height: 71px;
   font-weight: 600;
 }
 
 .monitor-container .sign .sign-name {
-  font-size: 17px;
+  font-size: 18px;
+  flex: 0 0 45%;
+  max-width: 45%;
 }
 
 .monitor-container .sign .sign-value {
-  font-size: 27px;
+  flex: 0 0 55%;
+  max-width: 55%;
+  font-size: 25px;
   font-weight: 700;
+  padding-bottom: 5px;
 }
 
 .monitor-container .wave-list::before {
@@ -133,13 +142,167 @@
   background-repeat: repeat;
 }
 
-.monitor-container .icon img {
+.monitor-container .display-container .icon img {
   animation: fadeInOut 0.7s ease-in-out infinite;
 }
 
-.monitor-container .sign.blue {
+.monitor-container .blue {
   color: var(--blue);
 }
+
+.monitor-container .red {
+  color: var(--red);
+}
+
+.monitor-container .brown {
+  color: var(--brown);
+}
+
+.monitor-container .move {
+  color: var(--move);
+}
+
+.monitor-container .darkmove {
+  color: var(--darkMove);
+}
+
+.monitor-container .config-inputs {
+  padding: 0 20px 25px 20px;
+}
+
+.monitor-container .form-inner {
+  background-color: rgba(0, 0, 0, .06);
+  border-radius: 10px;
+  padding: 15px 10px 10px 10px;
+}
+
+.monitor-container .form-inner .form-group:not(:last-child) {
+  margin-right: 30px;
+}
+
+.monitor-container .form-contaner .form-control {
+  width: 90px;
+  min-height: 44px;
+  outline: none;
+  box-shadow: none;
+}
+
+/* For WebKit browsers like Chrome, Safari */
+.form-control::-webkit-outer-spin-button,
+.form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+.form-control[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.monitor-container .form-contaner {
+  height: 0px;
+}
+
+.monitor-container .form-contaner label {
+  white-space: nowrap;
+}
+
+.monitor-container .config-heading {
+  cursor: pointer;
+}
+
+.monitor-container .config-heading .arrow {
+  width: 17px;
+  height: 17px;
+  margin-top: 4px;
+  transition: transform 0.22s ease-in-out;
+}
+
+.monitor-container .config-heading.active .arrow {
+  transform: rotate(90deg);
+}
+
+.monitor-container input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: linear-gradient(to right, #0d6efd 0%, #0d6efd 0%, #cbd5e5 0%, #cbd5e5 100%);
+}
+
+.monitor-container input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 15px;
+}
+
+.monitor-container input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 15px;
+}
+
+.monitor-container input[type=range]::-ms-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 15px;
+}
+
+.monitor-container input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.25);
+  border: 4px solid #fff;
+  outline: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background: #0d6efd;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.monitor-container input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.25);
+  border: 4px solid #fff;
+  outline: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 100%;
+  background: #0d6efd;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.monitor-container input[type=range]:focus::-webkit-slider-thumb {
+  background: #0d6efd;
+  box-shadow: 0px 0px 2px 3px #0d6efd;
+}
+
+.monitor-container input[type=range]:focus::-moz-range-thumb {
+  background: #0d6efd;
+  box-shadow: 0px 0px 2px 2px #0d6efd;
+}
+
+.monitor-container .note {
+  font-size: 14px;
+  color: #4c4c4c;
+}
+
+/*** Animations ***/
 
 @keyframes wavespin {
   0% {
