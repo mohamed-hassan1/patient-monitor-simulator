@@ -12,8 +12,6 @@
   --dispayBg: #fff;
 }
 
-
-
 /*** Monitor Container ***/
 
 .monitor-container .box-container {
@@ -38,6 +36,7 @@
 .monitor-container .inner-display {
   border: 3px solid var(--borderColor);
   background-color: #fff;
+  padding: 10px 0;
 }
 
 .monitor-container .box-btns {
@@ -72,3 +71,85 @@
 .monitor-container .box-btns .bg-dark {
   background-color: var(--borderColor);
 }
+
+.monitor-container .data-row {
+  padding: 15px;
+  color: var(--borderColor);
+}
+
+.monitor-container .left-data {
+  flex: 0 0 135px;
+  max-width: 135px;
+  padding: 0px 0 0 20px;
+}
+
+.monitor-container .mid-data {
+  flex: 0 0 calc(100% - 305px);
+  max-width: calc(100% - 305px);
+}
+
+.monitor-container .right-data {
+  flex: 0 0 170px;
+  max-width: 170px;
+}
+
+.monitor-container .sign > div {
+  flex: 0 0 50%;
+  max-width: 50%;
+  font-weight: 600;
+}
+
+.monitor-container .sign .sign-name {
+  font-size: 18px;
+}
+
+.monitor-container .sign .sign-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.monitor-container .wave-list::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  animation: wavespin 5s cubic-bezier(0.04, 0.1, 0.08, 0.04) infinite;
+}
+
+.monitor-container .bgwave {
+  height: 77px;
+  width: 100%;
+  background-size: contain;
+  background-position: 0px center;
+  background-repeat: repeat;
+}
+
+.monitor-container .icon img {
+  animation: fadeInOut 0.7s ease-in-out infinite;
+}
+
+@keyframes wavespin {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
