@@ -20,9 +20,9 @@ IN_range.forEach(item => {
 });
 // Resize
 window.addEventListener('resize', function() {
-  if (window.innerWidth <= 767 && !configBtn.classList.contains('resize') || window.innerWidth > 767 && !configBtn.classList.contains('resize')) {
+  if ((window.innerWidth <= 767 && configBtn.classList.contains('active')) || (window.innerWidth > 767 && configBtn.classList.contains('active'))) {
     // Open Config
-    openConfig();
+    openConfig('resize');
     configBtn.classList.add('resize');
   }
 })
@@ -32,10 +32,14 @@ window.addEventListener('load', init);
 
 // *** Global Functions ***
 // Config button
-function openConfig() {
+function openConfig(status) {
   let listContainer = configBtn.nextElementSibling,
       list = listContainer.children[0].offsetHeight,
-      counter = 0, speed = 10;
+      counter = 0, speed = 8;
+  if (status === 'resize') {
+    listContainer.style.height = list + 'px';
+    return;
+  }
   if (window.innerWidth <= 767) {
     speed = 4;
   }
@@ -63,7 +67,6 @@ function openConfig() {
       }
     }, speed);
   }
-  configBtn.classList.remove('resize');
 }
 
 // Set Range Input Color
@@ -168,7 +171,7 @@ function init() {
   // Range Inputs Style
   IN_range.forEach(item => setRangeColor(item));
   // Open Config
-  openConfig();
+  openConfig(null);
   // Wave Init
   updateWaveforms(Number(IN_heart.value), Number(IN_respiratory.value));
   initStatus = false;
