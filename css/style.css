@@ -125,7 +125,7 @@
 .monitor-container .wave-list::before {
   content: '';
   position: absolute;
-  width: 18px;
+  width: 12px;
   height: 100%;
   top: 0;
   left: 0;
@@ -300,6 +300,10 @@
 .monitor-container .note {
   font-size: 14px;
   color: #4c4c4c;
+}
+
+.monitor-container .wave-list svg {
+  flex: 0 0 auto;
 }
 
 /*** Animations ***/

@@ -5,6 +5,8 @@ const configBtn = document.querySelector('.config-heading'),
       IN_heart = document.querySelector('.heart-input'),
       IN_respiratory = document.querySelector('.respiratory-input');
 
+let initStatus = true;
+
 // *** Events ***
 // Open config on click
 configBtn.addEventListener('click', openConfig);
@@ -103,7 +105,10 @@ function updateWaveforms(heartRate, respiratoryRate) {
   const capnoPath = document.querySelectorAll('.capno-path');
   capnoPath.forEach(item => {
     item.setAttribute('d', `M0,50 L${20 * capnoScale},50 L${20 * capnoScale},30 L${40 * capnoScale},30 L${40 * capnoScale},50 L${60 * capnoScale},50`);
-  })
+  });
+
+  // Set SVG Width
+  setSvgWidth();
 }
 
 // Set Range Input Value
@@ -121,6 +126,32 @@ function setRangeVal() {
   updateWaveforms(Number(heart.value), Number(respiratory.value));
 }
 
+// Set SVG Width
+function setSvgWidth() {
+  const allSvg = document.querySelectorAll('.svg-wave');
+  allSvg.forEach(item => {
+    let pathEle = item.querySelector('path'),
+        getPathWidth = pathEle.getBBox(),
+        pathWidth = getPathWidth.width + getPathWidth.x;
+    item.setAttribute('width', parseInt(pathWidth));
+
+    // Duplicate SVG
+    if (initStatus) { // ONLY one time on page load
+      for (let i = 0; i < 25; i++) {
+        let copyItem = item.cloneNode(true);
+        item.parentElement.appendChild(copyItem);
+      }
+    }
+
+  });
+}
+
+// Duplicate SVG
+function duplicateSvg() {
+  const allSvg = document.querySelectorAll('.svg-wave');
+  allSvg.forEach
+}
+
 // Init
 function init() {
   // Range Inputs Style
@@ -129,9 +160,8 @@ function init() {
   openConfig();
   // Wave Init
   updateWaveforms(Number(IN_heart.value), Number(IN_respiratory.value));
+  initStatus = false;
 }
-
-
 
 
 /*
